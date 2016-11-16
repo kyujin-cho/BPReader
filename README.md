@@ -8,3 +8,6 @@
 - Barcode reading & parsing 
 - Making PDF417 Barcode from text
 
+## Dependency
+- [Jsoup](https://jsoup.org)
+- [Zxing-android](https://github.com/zxing/zxing)
