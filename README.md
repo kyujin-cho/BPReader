@@ -2,7 +2,7 @@
 
 An Android barcode reader app for boarding pass barcode(PDF417 type barcode).
 
-A barcode printed on boarding pass has a bunch of datas [based on IATA Bar coded boarding pass rule](http://www.iata.org/whatwedo/stb/Pages/bcbp.aspx)
+A barcode printed on boarding pass has a bunch of datas based on [IATA Bar coded boarding pass rule](http://www.iata.org/whatwedo/stb/Documents/BCBP_Implementation_Guidev4_Jun2009.pdf)
 
 This android application parses data from raw text.
 
