@@ -82,8 +82,21 @@ public class ScanFragment extends Fragment implements View.OnClickListener {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        // Declares variables of fragment
+        View scanView = inflater.inflate(R.layout.fragment_scan, container, false);
+        mData = new ArrayList<>();
+
+        btnScan = (Button) scanView.findViewById(R.id.btnScan);
+        btnImportText = (Button) scanView.findViewById(R.id.btnImportText);
+        recyclerView = (RecyclerView) scanView.findViewById(R.id.recyclerView);
+        recyclerView.setHasFixedSize(true);
+        mLayoutManager = new LinearLayoutManager(this.getContext());
+        recyclerView.setLayoutManager(mLayoutManager);
+        mAdapter = new RecyclerViewAdapter(this.getContext(), mData);
+        recyclerView.setAdapter(mAdapter);
+
+        btnScan.setOnClickListener(this);
+        btnImportText.setOnClickListener(this);
+        return scanView;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -95,7 +108,31 @@ public class ScanFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        // What to do when button is clicked
+        switch (v.getId()) {
+            case R.id.btnScan:
+                IntentIntegrator integrator = IntentIntegrator.forSupportFragment(this);
+                integrator.setBeepEnabled(true);
+                integrator.initiateScan();
+                break;
+            case R.id.btnImportText:
+                final EditText text = new EditText(getContext());
+                text.setHint("Barcode text");
+                new AlertDialog.Builder(getActivity())
+                        .setMessage("Input barcode text")
+                        .setView(text)
+                        .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                parse(text.getText().toString());
+                            }
+                        }).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                    }
+                }).show();
+                break;
+        }
     }
 
     @Override
@@ -117,7 +154,19 @@ public class ScanFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        // Starts parsing data after a text input is made
+        IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
+        if(result != null && result.getContents() != null) {
+            parse(result.getContents());
+        }
+        super.onActivityResult(requestCode, resultCode, data);
+    }
+
+    public void parse(String data) {
+        mData.clear();
+        ParseData p = new ParseData(data, getContext());
+        for(Data m : p.mData)
+            mData.add(m);
+        mAdapter.notifyDataSetChanged();
     }
 
     /**
