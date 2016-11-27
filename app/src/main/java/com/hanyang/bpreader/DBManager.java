@@ -14,7 +14,7 @@ public class DBManager extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        // Creates new Database
+        db.execSQL("CREATE TABLE IATA_LIST( _id INTEGER PRIMARY KEY AUTOINCREMENT, lat TEXT, lon TEXT, country TEXT, name TEXT, code TEXT);");
     }
 
     @Override
@@ -29,13 +29,20 @@ public class DBManager extends SQLiteOpenHelper {
     }
 
     public String getName(String iataCode) {
-            // Retrieves full name of the airline
-        return null;
+        String name = "";
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM IATA_LIST WHERE code='" + iataCode + "';", null);
+        while(cursor.moveToNext())
+            name = cursor.getString(4);
+        if (name.equals(""))
+            name = iataCode;
+        return name;
     }
 
     public void updateDatabase(String name, String lat, String lon, String country, String iata) {
-        // Updates database with files downloaded from server
+        String mQuery = "INSERT INTO IATA_LIST(name, lat, lon, country, code)" +
+                "SELECT '" + name + "','" + lat + "','" + lon + "','" + country + "','" + iata + "'" +
+                "WHERE NOT EXISTS(SELECT '" + iata + "' FROM IATA_LIST WHERE code='" + iata + "');";
+        query(mQuery);
     }
-
-
 }
