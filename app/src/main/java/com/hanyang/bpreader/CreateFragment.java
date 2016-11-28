@@ -83,6 +83,7 @@ public class CreateFragment extends Fragment implements View.OnClickListener {
         v.findViewById(R.id.barcode_image_card_view).setVisibility(View.INVISIBLE);
         // Inflate the layout for this fragment
 
+
         return v;
 
     }
@@ -107,7 +108,38 @@ public class CreateFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        // Declares what to do when button is clicked
+        switch (v.getId()) {
+            case R.id.btnCreateBarcode:
+                final EditText text = new EditText(getContext());
+                final ImageView barcode_image = (ImageView) this.getView().findViewById(R.id.barcodeImageView);
+                final CardView barcode_card_view = (CardView) this.getView().findViewById(R.id.barcode_image_card_view);
+
+
+                text.setHint("Barcode text with all the characters(even blanks!)");
+                new AlertDialog.Builder(getActivity())
+                        .setMessage("Input barcode text.")
+                        .setView(text)
+                        .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                try {
+                                    String barcode_text = text.getText().toString();
+                                    Bitmap barcode_bitmap = encodeAsBitmap(barcode_text, BarcodeFormat.PDF_417, 1800, 900);
+                                    barcode_image.setImageBitmap(barcode_bitmap);
+                                    barcode_card_view.setVisibility(View.VISIBLE);
+                                } catch (WriterException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        }).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                })
+                        .show();
+                break;
+        }
     }
 
     @Override
@@ -120,13 +152,46 @@ public class CreateFragment extends Fragment implements View.OnClickListener {
     private static final int BLACK = 0xFF000000;
 
     Bitmap encodeAsBitmap(String contents, BarcodeFormat format, int img_width, int img_height) throws WriterException {
-        // Encodes barcode as bitmap image
-        return null;
+        String contentsToEncode = contents;
+        if (contentsToEncode == null) {
+            return null;
+        }
+        Map<EncodeHintType, Object> hints = null;
+        String encoding = guessAppropriateEncoding(contentsToEncode);
+        if (encoding != null) {
+            hints = new EnumMap<EncodeHintType, Object>(EncodeHintType.class);
+            hints.put(EncodeHintType.CHARACTER_SET, encoding);
+        }
+        MultiFormatWriter writer = new MultiFormatWriter();
+        BitMatrix result;
+        try {
+            result = writer.encode(contentsToEncode, format, img_width, img_height, hints);
+        } catch (IllegalArgumentException iae) {
+            // Unsupported format
+            return null;
+        }
+        int width = result.getWidth();
+        int height = result.getHeight();
+        int[] pixels = new int[width * height];
+        for (int y = 0; y < height; y++) {
+            int offset = y * width;
+            for (int x = 0; x < width; x++) {
+                pixels[offset + x] = result.get(x, y) ? BLACK : WHITE;
+            }
+        }
+
+        Bitmap bitmap = Bitmap.createBitmap(width, height,
+                Bitmap.Config.ARGB_8888);
+        bitmap.setPixels(pixels, 0, width, 0, 0, width, height);
+        return bitmap;
     }
 
     private static String guessAppropriateEncoding(CharSequence contents) {
-        // Checks whether encoding is utf8 or not
-        return null;
+        for (int i = 0; i < contents.length(); i++) {
+            if (contents.charAt(i) > 0xFF) {
+                return "UTF-8";
+            }
+        }        return null;
     }
     /**
      * This interface must be implemented by activities that contain this
