@@ -62,8 +62,6 @@ public class MainActivity extends AppCompatActivity implements CreateFragment.On
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-
     }
 
 
