@@ -62,6 +62,13 @@ public class MainActivity extends AppCompatActivity implements CreateFragment.On
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        tabLayout = (TabLayout) findViewById(R.id.tabs);
+        tabLayout.addTab(tabLayout.newTab().setText("SCAN"));
+        tabLayout.addTab(tabLayout.newTab().setText("CREATE"));
+        tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
+        tabLayout.setOnTabSelectedListener(this);
+
     }
 
 

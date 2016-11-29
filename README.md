@@ -26,6 +26,7 @@ This android application parses data from raw text.
 
 ## TODO
 - Convert IATA airport code (from boarding pass) to full airport name
+- Airplane boarding time Alarm system
 
 ## License
 - Based on GPL 3.0 License
