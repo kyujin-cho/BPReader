@@ -73,6 +73,10 @@ public class MainActivity extends AppCompatActivity implements CreateFragment.On
         airline_manager = new AirlineManager(getApplicationContext(), "airline.db", null, 1);
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
+        mViewPager = (ViewPager) findViewById(R.id.container);
+        mViewPager.setAdapter(mSectionsPagerAdapter);
+        mViewPager.addOnPageChangeListener(this);
+
     }
 
 
