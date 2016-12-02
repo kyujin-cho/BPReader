@@ -68,6 +68,8 @@ public class MainActivity extends AppCompatActivity implements CreateFragment.On
         tabLayout.addTab(tabLayout.newTab().setText("CREATE"));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
         tabLayout.setOnTabSelectedListener(this);
+
+        manager = new DBManager(getApplicationContext(), "airport.db", null, 1);
     }
 
 
