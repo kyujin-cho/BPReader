@@ -70,6 +70,8 @@ public class MainActivity extends AppCompatActivity implements CreateFragment.On
         tabLayout.setOnTabSelectedListener(this);
 
         manager = new DBManager(getApplicationContext(), "airport.db", null, 1);
+        airline_manager = new AirlineManager(getApplicationContext(), "airline.db", null, 1);
+        mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
     }
 
