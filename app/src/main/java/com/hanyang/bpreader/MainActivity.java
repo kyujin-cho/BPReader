@@ -70,20 +70,6 @@ public class MainActivity extends AppCompatActivity implements CreateFragment.On
         tabLayout.setOnTabSelectedListener(this);
 
         manager = new DBManager(getApplicationContext(), "airport.db", null, 1);
-        manager = new DBManager(getApplicationContext(), "airport.db", null, 1);
-        manager = new DBManager(getApplicationContext(), "airport.db", null, 1);
-        manager = new DBManager(getApplicationContext(), "airport.db", null, 1);
-        manager = new DBManager(getApplicationContext(), "airport.db", null, 1);
-        manager = new DBManager(getApplicationContext(), "airport.db", null, 1);
-        manager = new DBManager(getApplicationContext(), "airport.db", null, 1);
-        manager = new DBManager(getApplicationContext(), "airport.db", null, 1);
-        manager = new DBManager(getApplicationContext(), "airport.db", null, 1);
-        manager = new DBManager(getApplicationContext(), "airport.db", null, 1);
-        manager = new DBManager(getApplicationContext(), "airport.db", null, 1);
-        manager = new DBManager(getApplicationContext(), "airport.db", null, 1);
-        manager = new DBManager(getApplicationContext(), "airport.db", null, 1);
-
-
 
     }
 
