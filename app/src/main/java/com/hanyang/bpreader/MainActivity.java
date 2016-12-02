@@ -76,6 +76,7 @@ public class MainActivity extends AppCompatActivity implements CreateFragment.On
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
         mViewPager.addOnPageChangeListener(this);
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 
     }
 
