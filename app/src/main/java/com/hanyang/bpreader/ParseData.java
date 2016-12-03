@@ -46,5 +46,24 @@ public class ParseData {
         } catch (ParseException e) {
             e.printStackTrace();
         }
+
+        String seat = "";
+        switch (values.get(10)) {
+            case "Y" :
+                seat = "Economy Class";
+                break;
+            case "J" :
+                seat = "Business Class";
+                break;
+            case "F" :
+                seat = "First Class";
+                break;
+            case "W" :
+                seat = "Premium Economy";
+                break;
+            default :
+                seat = values.get(10);
+                break;
+        }
     }
 }
