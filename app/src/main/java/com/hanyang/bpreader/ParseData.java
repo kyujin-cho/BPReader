@@ -37,5 +37,14 @@ public class ParseData {
             values.add(p);
             cursor += c;
         }
+        try {
+            String input = Integer.toString(Calendar.getInstance().get(Calendar.YEAR)) + values.get(9);
+            DateFormat fmt1 = new SimpleDateFormat("yyyyDDD");
+            Date date = fmt1.parse(input);
+            DateFormat fmt2 = new SimpleDateFormat("MM/dd/yyyy");
+            values.set(9, fmt2.format(date));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
     }
 }
