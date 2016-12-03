@@ -19,6 +19,15 @@ public class ParseData {
     AirlineManager airline_manager;
 
     public ParseData(String data, Context mContext) {
-        // Parses data from raw barcode string
+        manager = new DBManager(mContext, "airport.db", null, 1);
+        airline_manager = new AirlineManager(mContext, "airline.db", null, 1);
+        values = new ArrayList<>();
+        mData = new ArrayList<>();
+        int cursor = 0;
+        Log.i("ParseData", "RESULT: " + data + " END");
+        Log.i("ParseData", "Data Length: " + data.length());
+        if(data.length() < 131)
+            while (data.length() != 131)
+                data += " ";
     }
 }
