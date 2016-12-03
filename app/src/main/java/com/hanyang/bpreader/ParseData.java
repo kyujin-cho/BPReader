@@ -65,5 +65,19 @@ public class ParseData {
                 seat = values.get(10);
                 break;
         }
+        values.set(10, seat);
+
+        if (values.get(11).charAt(0) == '0')
+            values.set(11, values.get(11).substring(1));
+        if (!values.get(21).equals("")) {
+
+        }
+
+        for(int i = 0; i < ParseDataEnum.DESC.length; i++) {
+            if(ParseDataEnum.DESC[i].equals("PASS"))
+                continue;
+            if(!values.get(i).equals(""))
+                mData.add(new Data(ParseDataEnum.DESC[i], values.get(i)));
+        }
     }
 }
