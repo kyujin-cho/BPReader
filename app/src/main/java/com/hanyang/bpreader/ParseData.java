@@ -29,5 +29,13 @@ public class ParseData {
         if(data.length() < 131)
             while (data.length() != 131)
                 data += " ";
+        Log.i("ParseData", "Extended data length to : " + data.length());
+        for(int c : ParseDataEnum.CURSOR) {
+            Log.i("ParseData", "Now Parsing: " + Integer.toString(c));
+            String p = data.substring(cursor, cursor + c).replace(" ", "");
+            Log.d("ParseData", "Parsed Data: " + p + " END");
+            values.add(p);
+            cursor += c;
+        }
     }
 }
