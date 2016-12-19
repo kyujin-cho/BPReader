@@ -79,6 +79,22 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         mData.addAll(manager.getDatas());
         swipeContainer.setRefreshing(false);
         mAdapter.notifyDataSetChanged();
+        manager = new DBManager(getApplicationContext(), "airport.db", null, 1);
+        airline_manager = new AirlineManager(getApplicationContext(), "airline.db", null, 1);
+        mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
+
+        mViewPager = (ViewPager) findViewById(R.id.container);
+        mViewPager.setAdapter(mSectionsPagerAdapter);
+        mViewPager.addOnPageChangeListener(this);
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+            }
+        });
+
     }
 
 

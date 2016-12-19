@@ -64,7 +64,7 @@ public class ParseData {
             values.set(8, flight_code);
         }
 
-        try {
+     try {
             String input = Integer.toString(Calendar.getInstance().get(Calendar.YEAR)) + values.get(9);
             DateFormat fmt1 = new SimpleDateFormat("yyyyDDD");
             Date date = fmt1.parse(input);
