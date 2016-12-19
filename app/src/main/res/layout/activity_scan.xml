@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:card="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_scan"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.hanyang.bpreader.ScanActivity">
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/recyclerView"
+        android:paddingTop="10dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/plane_card_view" />
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        card:cardCornerRadius="3dp"
+        android:id="@+id/plane_card_view"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="8dp"
+            android:padding="8dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:id="@+id/textView2"
+                android:paddingRight="3dp"
+                android:text="Date"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentStart="true"
+                android:paddingBottom="8dp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                card:srcCompat="@drawable/ic_flight_takeoff_black_24dp"
+                android:layout_below="@id/textView2"
+                android:id="@+id/imageView2"
+                android:paddingRight="8dp" />
+
+            <TextView
+                android:text="TEST"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/dateView"
+                android:textSize="20sp"
+                android:textColor="@color/cardview_dark_background"
+                android:paddingBottom="5dp"
+                android:layout_alignParentTop="true"
+                android:layout_toEndOf="@+id/departureTextView" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                card:srcCompat="@drawable/ic_flight_land_black_24dp"
+                android:id="@+id/imageView4"
+                android:layout_below="@+id/imageView3"
+                android:layout_alignParentStart="true" />
+
+            <TextView
+                android:text="ICN"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/departureTextView"
+                android:textSize="16sp"
+                android:layout_below="@+id/textView2"
+                android:layout_toEndOf="@+id/imageView2" />
+
+            <TextView
+                android:text="NRT"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/arrivalTextView"
+                android:textSize="16sp"
+                android:layout_alignTop="@+id/imageView4"
+                android:layout_toEndOf="@+id/imageView2" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                card:srcCompat="@drawable/ic_flight_black_24dp"
+                android:id="@+id/imageView3"
+                android:paddingTop="8dp"
+                android:paddingEnd="8dp"
+                android:layout_below="@+id/departureTextView"
+                android:layout_centerHorizontal="true" />
+
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+</RelativeLayout>

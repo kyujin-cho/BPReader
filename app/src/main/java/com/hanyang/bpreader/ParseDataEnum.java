@@ -10,10 +10,10 @@ public class ParseDataEnum {
             "Name",
             "PASS",
             "Ticket PNR Code",
-            "Departure Airport",
-            "Arrival Airport",
-            "Operating Carrier",
-            "Flight Number",
+            "Departure Airport", // 3
+            "Arrival Airport", // 4
+            "Operating Carrier", // 5
+            "Flight Number", // 6
             "Flight Date",
             "Seat Class",
             "Seat No.",

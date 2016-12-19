@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_camera"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="Scan Barcode" />
+        <item
+            android:id="@+id/nav_text"
+            android:icon="@drawable/ic_library_books_black_24dp"
+            android:title="Import Text" />
+        <item
+            android:id="@+id/nav_create"
+            android:icon="@drawable/ic_add_black_24dp"
+            android:title="Create Barcode" />
+        <item
+            android:id="@+id/nav_alarm"
+            android:icon="@drawable/ic_alarm_black_24dp"
+            android:title="Manage Alarm" />
+        <item
+            android:id="@+id/action_update_db"
+            android:orderInCategory="200"
+            android:title="Update Airport DB" />
+        <item
+            android:id="@+id/action_update_airline"
+            android:orderInCategory="300"
+            android:title="Update Airline DB" />
+    </group>
+
+    <item android:title="Communicate">
+        <menu>
+            <item
+                android:id="@+id/nav_share"
+                android:icon="@drawable/ic_menu_share"
+                android:title="Share" />
+        </menu>
+    </item>
+</menu>
