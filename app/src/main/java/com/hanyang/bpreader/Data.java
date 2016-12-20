@@ -1,7 +1,12 @@
-package com.hanyang.bpreader;
 /**
- * Created by kyujin on 2016-08-18.
+ * Data
+ * 이름-내용 쌍 형태의 Data 관리를 위한 클래스
+ * @author Kyujin Cho
+ * @version 1.0
  */
+
+package com.hanyang.bpreader;
+
 public class Data {
     String name, content;
 

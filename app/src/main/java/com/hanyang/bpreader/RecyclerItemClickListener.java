@@ -1,8 +1,11 @@
+/**
+ * RecyclerItemClickListener
+ * 다음의 코드를 참고함
+ * http://stackoverflow.com/questions/24471109/recyclerview-onclick
+ */
+
 package com.hanyang.bpreader;
 
-/**
- * Created by kyujin on 14/12/2016.
- */
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;

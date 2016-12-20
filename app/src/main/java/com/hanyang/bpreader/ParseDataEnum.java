@@ -1,7 +1,11 @@
-package com.hanyang.bpreader;
 /**
- * Created by kyujin on 2016-08-18.
+ * ParseDataEnum
+ * @author Kyujin Cho
+ * @version 1.0
+ * @see com.hanyang.bpreader.ParseData
  */
+
+package com.hanyang.bpreader;
 public class ParseDataEnum {
       // Descriptions about parsed data
     static final String[] DESC = {

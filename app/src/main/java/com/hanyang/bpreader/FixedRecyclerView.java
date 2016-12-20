@@ -1,3 +1,9 @@
+/**
+ * FixedRecyclerView
+ * 다음의 링크에서 가져옴
+ * https://github.com/lurbas/Android-MVC/blob/master/app/src/main/java/com/lucasurbas/mvc/view/FixedRecyclerView.java
+ */
+
 package com.hanyang.bpreader;
 
 import android.content.Context;
@@ -7,9 +13,6 @@ import android.util.AttributeSet;
 import android.view.ContextMenu;
 import android.view.View;
 
-/**
- * Created by kyujin on 2016-08-29.
- */
 public class FixedRecyclerView extends RecyclerView {
 
     private RecyclerContextMenuInfo mContextMenuInfo;

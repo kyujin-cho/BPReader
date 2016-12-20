@@ -1,10 +1,11 @@
-package com.hanyang.bpreader;
-
-import java.util.ArrayList;
-
 /**
- * Created by kyujin on 14/12/2016.
+ * ListData
+ * MainActivity에서 저장된 바코드 텍스트를 RecyclerView를 통해 보여줄 때 사용할 데이터 집합
+ * @author Kyujin Cho
+ * @version 1.0
  */
+
+package com.hanyang.bpreader;
 
 public class ListData {
     String id;

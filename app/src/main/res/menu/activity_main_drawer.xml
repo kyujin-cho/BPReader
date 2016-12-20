@@ -15,25 +15,10 @@
             android:icon="@drawable/ic_add_black_24dp"
             android:title="Create Barcode" />
         <item
-            android:id="@+id/nav_alarm"
-            android:icon="@drawable/ic_alarm_black_24dp"
-            android:title="Manage Alarm" />
-        <item
             android:id="@+id/action_update_db"
-            android:orderInCategory="200"
             android:title="Update Airport DB" />
         <item
             android:id="@+id/action_update_airline"
-            android:orderInCategory="300"
             android:title="Update Airline DB" />
     </group>
-
-    <item android:title="Communicate">
-        <menu>
-            <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
-        </menu>
-    </item>
 </menu>
