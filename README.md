@@ -1,19 +1,28 @@
 # Boarding Pass Reader
+An Android barcode reader app to manage boarding pass.
 
-An Android barcode reader app for boarding pass barcode(PDF417 type barcode).
+A barcode printed on boarding pass has a bunch of datas based on [IATA Bar-coded boarding pass rule](https://www.iata.org/whatwedo/stb/Documents/BCBP-Implementation-Guide-5th-Edition-June-2016.pdf).
 
-A barcode printed on boarding pass has a bunch of datas based on [IATA Bar-coded boarding pass rule](https://www.iata.org/whatwedo/stb/Documents/BCBP-Implementation-Guide-5th-Edition-June-2016.pdf)
-
-This android application parses data from raw text.
+This android application parses data from raw text from those barcodes.
 
 This application uses icon from [Google's material design](https://material.io/icons/ )(Apache 2.0 License)
-## Team Member
+## Introduction
+
+### Base Language
+This Project uses XML to design UI, and Java as a main language.
+
+### Team Member
 - [Kyujin Cho](http://thy2134.github.io)(Main Programmer / Designer)
 - [Jaehyeon Ahn](http://IIru.github.io)(Designer)
 - [Hanhyeok Hwang](http://Triplehwang.github.io)(Project Maintainer)
 
+### Goal
+Our goal is to create a well-formed Android application to manage the airplane trip for those who like to travel, or works internationally.
+
+We have plan to expand this application as a total trip managing application.
+
 ## Feature
-- Reads boarding pass barcode
+- Reads text inside boarding pass barcode
 - Parses text input from barcode to readable output
 - Makes PDF417 Barcode from input text
 
@@ -21,6 +30,7 @@ This application uses icon from [Google's material design](https://material.io/i
 ![Screenshot 1](https://github.com/thy2134/BPReader/raw/master/Screenshots/Screenshot_20161220-174802.png)
 ![Screenshot 2](https://github.com/thy2134/BPReader/raw/master/Screenshots/Screenshot_20161220-174814.png)
 ![Screenshot 3](https://github.com/thy2134/BPReader/raw/master/Screenshots/Screenshot_20161220-174901.png)
+
 ## Library
 - [Jsoup](https://jsoup.org)
 	- Connects to internet and downloads newest Airline / Airport DB File
@@ -35,8 +45,9 @@ This application uses icon from [Google's material design](https://material.io/i
 1. Clone this project
 2. Compile project & run
 
-## What to do?
-- Airplane boarding time Alarm system
+## What to do now?
+- Airplane boarding time Alarm feature
+- Automatically update Database periodically
 
 ## License
-- Based on GPL 3.0 License
+- This project is based on GPL 3.0 License
