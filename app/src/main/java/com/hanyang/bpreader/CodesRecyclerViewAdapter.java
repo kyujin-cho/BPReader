@@ -20,7 +20,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 
-public class CodesRecyclerViewAdapter extends RecyclerView.Adapter<CodesRecyclerViewAdapter.CodesRecyclerViewHolder>{
+public class CodesRecyclerViewAdapter extends FixedRecyclerView.Adapter<CodesRecyclerViewAdapter.CodesRecyclerViewHolder>{
     Context mContext;
     ArrayList<ListData> mData;
     LayoutInflater mInflater;
@@ -56,6 +56,7 @@ public class CodesRecyclerViewAdapter extends RecyclerView.Adapter<CodesRecycler
                 mContext.startActivity(intent); // 액티비티 시작
             }
         });
+        holder.view.setLongClickable(true);
     }
 
     /**

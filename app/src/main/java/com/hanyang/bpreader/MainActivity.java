@@ -110,7 +110,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         menu.add(0, 1, 0, "삭제"); // Context Menu에 삭제 메뉴 추가
     }
 
-
     /**
      * Context Menu의 Item이 선택되었을 때 행할 메소드.
      * 여기서는 삭제 버튼을 눌렀을 때, 확인 창을 띄워 이중 체크 후에 삭제를 진행한다.
