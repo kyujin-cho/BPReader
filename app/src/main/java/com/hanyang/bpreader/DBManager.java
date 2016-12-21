@@ -33,7 +33,6 @@ public class DBManager extends SQLiteOpenHelper {
 
     }
 
-
     /**
      * 전달받은 쿼리문을 쿼리해주는 메소드
      * @param query 실행할 쿼리문
@@ -52,7 +51,7 @@ public class DBManager extends SQLiteOpenHelper {
     public String getName(String iataCode) {
         String name = "";
         SQLiteDatabase db = getReadableDatabase(); // db 열기
-        Cursor cursor = db.rawQuery("SELECT * FROM IATA_LIST WHERE code='" + iataCode + "';", null); // DB에서 iata code가 전달받은 code인 공항 선택
+        Cursor cursor = db.rawQuery("SELECT * FROM IATA_LIST WHERE code='" + iataCode + "';", null); // DB 에서 iata code가 전달받은 code인 공항 선택
         while(cursor.moveToNext())
             name = cursor.getString(4); // 공항 이름 가져오기
         if (name.equals("")) // 입력받은 코드로 공항이름을 찾을 수 없을 시

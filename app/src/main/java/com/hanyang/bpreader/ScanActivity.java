@@ -29,8 +29,6 @@ public class ScanActivity extends AppCompatActivity {
     RecyclerView.Adapter mAdapter;
     RecyclerView.LayoutManager mLayoutManager;
     ArrayList<Data> mData;
-    DBManager manager;
-    AirlineManager airline_manager;
     BPManager bpmanager;
     boolean data_loaded = false;
     TextView dateView;
@@ -43,6 +41,7 @@ public class ScanActivity extends AppCompatActivity {
      * 여기서는 파싱된 데이터가 표시될 RecyclerView에 관련된 변수를 초기화 및 제어하고, 데이터를 가져온다.
      * @param savedInstanceState
      */
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,8 +54,6 @@ public class ScanActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(mLayoutManager); // recyclerView에 mLayoutManager 연결
         mAdapter = new RecyclerViewAdapter(this, mData); // RecyclerViewAdapter 객체 정의
         recyclerView.setAdapter(mAdapter); // RecyclerView에 Adapter 연결
-        manager = new DBManager(this, "airport.db", null, 1); // 입력된 Text를 저장할 Database 오픈
-        airline_manager = new AirlineManager(this, "airline.db", null, 1); // Airline의 Full Name이 저장되어있는 Database 오픈
         bpmanager = new BPManager(this, "code.db", null, 1); // 공항의 FUll Name이 저장되어 있는 Database 오픈
         Intent intent = getIntent(); // 액티비티가 실행될 때 전달된 값을 가져오기 위해 Intent 가져옴
         String data = intent.getStringExtra("data"); // 가져온 Intent에서 "data"라는 이름의 String 가져옴

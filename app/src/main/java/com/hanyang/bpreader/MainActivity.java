@@ -1,4 +1,3 @@
-
 /**
  * MainActivity
  * 저장된 보딩 패스 목록 및, 새 보딩 패스 스캔과 보딩 패스 바코드 만드는 Sidebar UI를 담당하는 메인 화면
@@ -44,7 +43,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     FixedRecyclerView.LayoutManager mLayoutManager;
     ArrayList<ListData> mData;
     SwipeRefreshLayout swipeContainer;
-    AirlineManager airline_manager;
 
     /**
      * Activity가 처음 생성될 때 실행되는 메소드. 초기 변수 및 UI Component의 전역 변수들을 정의.
@@ -60,7 +58,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 
         manager = new BPManager(this, "code.db", null, 1); // Scan하여 저장된 바코드를 꺼내올 DB 객체
-        airline_manager = new AirlineManager(getApplicationContext(), "airline.db", null, 1); 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout); // Navigation Drawer를 사용하기 위하여 정의
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
